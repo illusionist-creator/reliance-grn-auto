@@ -403,7 +403,7 @@ class RelianceAutomation:
             "doc": "Documents", "docx": "Documents", "txt": "Documents",
             "xls": "Spreadsheets", "xlsx": "Spreadsheets", "csv": "Spreadsheets",
             "jpg": "Images", "jpeg": "Images", "png": "Images", "gif": "Images",
-            "ppt": " Presentations", "pptx": "Presentations",
+            "ppt": "Presentations", "pptx": "Presentations",
             "zip": "Archives", "rar": "Archives", "7z": "Archives",
         }
         
@@ -978,13 +978,13 @@ def main():
                 st.session_state.workflow_state['running'] = False
         
         # Progress tracking
-        main sects = st.progress(st.session_state.workflow_state['progress'])
- conducir_status = st.text(st.session_state.workflow_state['status'])
+        main_progress = st.progress(st.session_state.workflow_state['progress'])
+        main_status = st.text(st.session_state.workflow_state['status'])
         
         # Log container
         st.subheader("Real-time Logs")
         log_container = st.empty()
-        log_container.text_area("Logs", "\n".join(st.session_stateworkflow_state['logs'][-50:]), height=200)
+        log_container.text_area("Logs", "\n".join(st.session_state.workflow_state['logs'][-50:]), height=200)
         
         # Check if workflow is done
         if not st.session_state.workflow_state['running']:
